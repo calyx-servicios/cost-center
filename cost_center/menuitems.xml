@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="cost_cemnter_root"
+        name="Cost Center"
+        groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
+        />
+
+    <menuitem
+        id="cost_center_menu"
+        name="Cost Centers"
+        action="action_cost_center_view_tree"
+        parent="cost_cemnter_root"
+        groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
+        />
+
+</odoo>
