@@ -23,7 +23,6 @@ class CostCenter(models.Model):
         required=True, readonly=True, states={'draft': [('readonly', False)]},
         default=lambda self: self.env['res.company']._company_default_get('cost.center'))
     description = fields.Char(string='Reference/Description', index=True, readonly=True, states={'draft': [('readonly', False)]}, copy=False,default='')
-    analytic_id = fields.Many2one('account.analytic.account', string='Account Analytic', change_default=True,
-        required=True, readonly=True, states={'draft': [('readonly', False)]})
+    analytic_id = fields.Many2one('account.analytic.account', string='Account Analytic', change_default=True, readonly=True, states={'draft': [('readonly', False)]})
     parent_id = fields.Many2one("cost.center", "Parent Center", select=True, states={'draft': [('readonly', False)]})
     child_ids = fields.One2many("cost.center", "parent_id", string="Childrens", states={'draft': [('readonly', False)]})

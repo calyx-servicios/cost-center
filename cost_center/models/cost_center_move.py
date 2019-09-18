@@ -18,6 +18,11 @@ class CostCenterMove(models.Model):
         return self.env.context.get('user_id', self.env.user.id)
 #### Fields
     name = fields.Char('Description', required=True)
+
+    state = fields.Selection([('open', 'Open'),
+                              ('validate', 'Validate')
+                              ], string='Status', index=True,  default='open',)
+
     date = fields.Date('Date', required=True, index=True, default=fields.Date.context_today)
     amount = fields.Monetary('Amount', required=True, default=0.0)
     #unit_amount = fields.Float('Quantity', default=0.0)
