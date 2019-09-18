@@ -9,10 +9,32 @@
         />
 
     <menuitem
+        id="center_menu"
+        name="Centers"
+        parent="cost_cemnter_root"
+        groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
+        />
+
+    <menuitem
+        id="moves_menu"
+        name="Moves"
+        parent="cost_cemnter_root"
+        groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
+        />
+
+    <menuitem
         id="cost_center_menu"
         name="Cost Centers"
         action="action_cost_center_view_tree"
-        parent="cost_cemnter_root"
+        parent="center_menu"
+        groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
+        />
+
+    <menuitem
+        id="cost_center_moves_menu"
+        name="Moves"
+        action="action_cost_center_moves_view_tree"
+        parent="moves_menu"
         groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
         />
 

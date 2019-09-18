@@ -25,6 +25,7 @@
         # "security/ir.model.access.csv",
         "security/cost_center_security.xml",
         "views/cost_center_view.xml",
+        "views/cost_center_move_view.xml",
         "menuitems.xml"
     ],
 }
