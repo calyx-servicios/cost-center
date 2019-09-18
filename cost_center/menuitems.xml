@@ -4,6 +4,7 @@
     <menuitem
         id="cost_cemnter_root"
         name="Cost Center"
+        web_icon="cost_center,static/menu_icon/icon.png"
         groups="account.group_account_manager,account.group_account_user,res_groups_user_cosct_center,res_groups_manager_cost_center"
         />
 
