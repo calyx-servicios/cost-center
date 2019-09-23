@@ -5,27 +5,25 @@
 <openerp>
 <data>
 
-<record id="ir_module_category_cost_center" model="ir.module.category">
-    <field name="name">Cost Center</field>
-</record>
+    <record id="cost_center" model="ir.module.category" >
+        <field name="name">Cost Center</field>
+        <field name="sequence">1</field>
+        <field name="description">Categoría base para Centro de Costo</field>
+    </record>
 
-<record id="res_groups_user_cosct_center" model="res.groups">
-    <field name="name">Cost Center User</field>
-    <field name="category_id" ref="cost_center.ir_module_category_cost_center"/>
-    <field name="comment">
-        The user will be able to browse some model.
-    </field>
-</record>
+    <record id="cost_center_user_group" model="res.groups">
+        <field name="name">User Cost Center</field>
+        <field name="category_id" ref="cost_center"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
 
-<record id="res_groups_manager_cost_center" model="res.groups">
-    <field name="name">Cost Center Manager</field>
-    <field name="category_id" ref="cost_center.ir_module_category_cost_center"/>
-    <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
-    <field name="comment">
-        The user will be able to manage some model.
-    </field>
-    <field name="users" eval="[(4, ref('base.user_root'))]"/>
-</record>
+    <record id="cost_center_responsible_group" model="res.groups">
+        <field name="name">Responsible Cost Center</field>
+        <field name="category_id" ref="cost_center"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="implied_ids" eval="[(4, ref('cost_center_user_group'))]"/>
+    </record>
 
 </data>
 </openerp>

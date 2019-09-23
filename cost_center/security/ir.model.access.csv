@@ -1,3 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-read,Permission to read some model,model_module_cost_center,res_groups_user_cosct_center,1,0,0,0
-write,Permission to write some model,model_module_cost_center,res_groups_manager_cost_center,1,1,1,1
+access_cost_center_user,access_cost_center,model_cost_center,cost_center.cost_center_user_group,1,1,1,1
+access_cost_center_responsible,access_cost_center,model_cost_center,cost_center.cost_center_responsible_group,1,1,1,1
+
+access_cost_center_move_user,access_cost_center_move,model_cost_center_move,cost_center.cost_center_user_group,1,1,1,1
+access_cost_center_move_responsible,access_cost_center_move,model_cost_center_move,cost_center.cost_center_responsible_group,1,1,1,1
