@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright <YEAR(S)> <AUTHOR(S)>
-     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <data>
 
-<openerp>
-<data>
-
-    <record id="cost_center_moves_view_tree" model="ir.ui.view">
-        <field name="name">Moves</field>
-        <field name="model">cost.center.move</field>
-        <field name="arch" type="xml">
-            <tree string="Moves" create="false">
-                <field name="name"/>
-                <field name="date"/>
-                <field name="amount"/>
-                <field name="cost_center_id"/>
-                <field name="partner_id"/>
-            </tree>
-        </field>
-    </record>
+        <record id="cost_center_moves_view_tree" model="ir.ui.view">
+            <field name="name">Moves</field>
+            <field name="model">cost.center.move</field>
+            <field name="arch" type="xml">
+                <tree string="Moves" create="false">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="amount"/>
+                    <field name="cost_center_id"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
 
 
-    <record id="action_cost_center_moves_view_tree" model="ir.actions.act_window">
-        <field name="name">Cost Center</field>
-        <field name="res_model">cost.center.move</field>
-        <field name="view_mode">tree</field>
-        <field eval="False" name="view_id"/>
-        <field name="domain">[]</field>
-        <field name="context">{}</field>
-<!--         <field name="search_view_id" ref=" "/> -->
-    </record>
+        <record id="action_cost_center_moves_view_tree" model="ir.actions.act_window">
+            <field name="name">Cost Center</field>
+            <field name="res_model">cost.center.move</field>
+            <field name="view_mode">tree</field>
+            <field eval="False" name="view_id"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+    <!--         <field name="search_view_id" ref=" "/> -->
+        </record>
 
-    <record id="cost_center_moves_view_tree_action" model="ir.actions.act_window.view">
-        <field eval="1" name="sequence"/>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="cost_center_moves_view_tree"/>
-        <field name="act_window_id" ref="action_cost_center_moves_view_tree"/>
-    </record>
+        <record id="cost_center_moves_view_tree_action" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="cost_center_moves_view_tree"/>
+            <field name="act_window_id" ref="action_cost_center_moves_view_tree"/>
+        </record>
 
 
-</data>
-</openerp>
+    </data>
+</odoo>
