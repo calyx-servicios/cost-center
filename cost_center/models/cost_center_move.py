@@ -26,10 +26,16 @@ class CostCenterMove(models.Model):
     date = fields.Date('Date', required=True, index=True, default=fields.Date.context_today)
     amount = fields.Monetary('Amount', required=True, default=0.0)
     #unit_amount = fields.Float('Quantity', default=0.0)
-    cost_center_id = fields.Many2one('cost.center', 'Cost Center', required=True, ondelete='restrict', index=True)
+
+    #cost_center_id = fields.Many2one('cost.center', 'Cost Center', required=True, ondelete='restrict', index=True)
+    cost_center_ids = fields.Many2many('cost.center', 'cost_center_move_line_rel', 'cost_center_id','cost_center_move_id', string='Cost Center',readonly=1 )
+
+
+
     partner_id = fields.Many2one('res.partner', string='Partner')
     user_id = fields.Many2one('res.users', string='User', default=_default_user)
 
-    company_id = fields.Many2one(related='cost_center_id.company_id', string='Company', store=True, readonly=True)
+    company_id = fields.Many2one('res.company', string='Company', change_default=True,
+        required=True, readonly=True, default=lambda self: self.env['res.company']._company_default_get('cost.center.move'))
     currency_id = fields.Many2one(related="company_id.currency_id", string="Currency", readonly=True)
 #### end Fields

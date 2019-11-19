@@ -34,10 +34,13 @@ class CostCenter(models.Model):
 
     calculate_name = fields.Char('Name', compute='_get_calculate_name', store=True)
 
-    line_ids = fields.One2many('cost.center.move', 'cost_center_id', string='Lines',readonly=1 )
     amount_debit = fields.Monetary(string='Total Debit', readonly=True, compute='_compute_amount')
     amount_credit = fields.Monetary(string='Total Credit', readonly=True, compute='_compute_amount')
+
+    line_ids = fields.Many2many('cost.center.move', 'cost_center_move_line_rel', 'cost_center_move_id','cost_center_id', string='Lines',readonly=1 )
+
 #### end Fields
+
     
     @api.depends('line_ids.amount')
     def _compute_amount(self):

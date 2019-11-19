@@ -10,7 +10,7 @@
                     <field name="name"/>
                     <field name="date"/>
                     <field name="amount"/>
-                    <field name="cost_center_id"/>
+                    <field name="cost_center_ids" widget="many2many_tags"/>
                     <field name="partner_id"/>
                 </tree>
             </field>
